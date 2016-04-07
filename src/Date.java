@@ -480,40 +480,9 @@ public class Date{
 
 	}
 
-	public String getDayOfWeek(){
+	public int getDayOfWeek(int diaSemana){
 
-		int dias;
-
-		int diasEstaSemana;
-
-		String dia="";
-
-		Date fecha = new Date(this);
-
-		dias = fecha.dayCount();
-
-		diasEstaSemana = dias%7;
-
-		switch(diasEstaSemana){
-
-			case 1: dia = "Lunes";
-			break;
-			case 2: dia = "Martes";
-			break;
-			case 3: dia = "Miércoles";
-			break;
-			case 4: dia = "Jueves";
-			break;
-			case 5: dia = "Viernes";
-			break;
-			case 6: dia = "Sábado";
-			break;
-			case 7: dia = "Domingo";
-			break;
-
-		}
-
-		return dia;
+		return (dayCount()%7) + diaSemana;
 
 	}
 
