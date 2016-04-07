@@ -183,7 +183,7 @@ public class Date{
 
 	public boolean isValidDay(){
 
-		boolean validez=false;
+		boolean validez=true;
 
 		switch(this.month){
 
@@ -332,7 +332,7 @@ public class Date{
 
 	}
 
-	String monthsLeft(){
+	public String monthsLeft(){
 
 		StringBuffer months = new StringBuffer();
 
@@ -350,7 +350,7 @@ public class Date{
 
 	}
 
-	String getDate(){
+	public String getDate(){
 
 		String date="";
 
@@ -386,7 +386,7 @@ public class Date{
 
 	}
 
-	String getDatesUntilEnd(){
+	public String getDatesUntilEnd(){
 
 		StringBuffer dates = new StringBuffer();
 
@@ -404,7 +404,7 @@ public class Date{
 
 	}
 
-	String getEqualsMonths(){
+	public String getEqualsMonths(){
 
 		StringBuffer equalMonths = new StringBuffer();
 		
@@ -442,25 +442,20 @@ public class Date{
 
 		Date fecha2 = new Date(this);
 
-		for(int i=1;i==fecha2.getMonth();i++){
+		for(int i = 1; i < fecha2.getMonth(); i++){
 
 			fecha.setMonth(i);
 	
-			if(fecha.getMonth()!=i){
-
-				dias = dias + fecha.getNumDays();
 			
-			}
 
-			else{
+			dias = dias + fecha.getNumDays();
+			
+			
 
-				dias = dias + fecha2.getDay();
-
-			}
 
 		}
 
-		return dias;
+		return dias + this.getDay();
 
 	}
 
@@ -482,6 +477,43 @@ public class Date{
 		}while(this.year!=randomYear);
 
 		return intentos;
+
+	}
+
+	public String getDayOfWeek(){
+
+		int dias;
+
+		int diasEstaSemana;
+
+		String dia="";
+
+		Date fecha = new Date(this);
+
+		dias = fecha.dayCount();
+
+		diasEstaSemana = dias%7;
+
+		switch(diasEstaSemana){
+
+			case 1: dia = "Lunes";
+			break;
+			case 2: dia = "Martes";
+			break;
+			case 3: dia = "Miércoles";
+			break;
+			case 4: dia = "Jueves";
+			break;
+			case 5: dia = "Viernes";
+			break;
+			case 6: dia = "Sábado";
+			break;
+			case 7: dia = "Domingo";
+			break;
+
+		}
+
+		return dia;
 
 	}
 

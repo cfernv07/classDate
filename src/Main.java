@@ -11,5 +11,7 @@ public class Main {
 		System.out.println(date.dayCount());
 
 		System.out.println(date.getAttemps());
+
+		System.out.println(date.getDayOfWeek());
 	}
 }
